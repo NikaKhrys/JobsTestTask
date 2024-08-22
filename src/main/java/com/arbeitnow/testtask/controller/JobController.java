@@ -3,6 +3,7 @@ package com.arbeitnow.testtask.controller;
 import com.arbeitnow.testtask.service.JobService;
 import com.arbeitnow.testtask.service.dto.JobDto;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import java.util.List;
@@ -40,8 +41,14 @@ public class JobController {
   @Operation(summary = "Get all jobs")
   @ApiResponses(
       value = {
-        @ApiResponse(responseCode = "200", description = "Found all jobs"),
-        @ApiResponse(responseCode = "204", description = "No jobs found")
+        @ApiResponse(
+            responseCode = "200",
+            description = "Found all jobs",
+            content = @Content(mediaType = "application/json")),
+        @ApiResponse(
+            responseCode = "204",
+            description = "No jobs found",
+            content = @Content(mediaType = "application/json"))
       })
   @GetMapping
   public ResponseEntity<Page<JobDto>> getAllJobs(@ParameterObject Pageable pageable) {
@@ -60,8 +67,14 @@ public class JobController {
   @Operation(summary = "Get top ten newest jobs")
   @ApiResponses(
       value = {
-        @ApiResponse(responseCode = "200", description = "Found top ten jobs"),
-        @ApiResponse(responseCode = "204", description = "No jobs found")
+        @ApiResponse(
+            responseCode = "200",
+            description = "Found top ten jobs",
+            content = @Content(mediaType = "application/json")),
+        @ApiResponse(
+            responseCode = "204",
+            description = "No jobs found",
+            content = @Content(mediaType = "application/json"))
       })
   @GetMapping("/top-ten")
   public ResponseEntity<List<JobDto>> getTopTen() {
@@ -78,8 +91,14 @@ public class JobController {
   @Operation(summary = "Get locations statistics")
   @ApiResponses(
       value = {
-        @ApiResponse(responseCode = "200", description = "Found locations statistics"),
-        @ApiResponse(responseCode = "204", description = "No statistics found")
+        @ApiResponse(
+            responseCode = "200",
+            description = "Found locations statistics",
+            content = @Content(mediaType = "application/json")),
+        @ApiResponse(
+            responseCode = "204",
+            description = "No statistics found",
+            content = @Content(mediaType = "application/json"))
       })
   @GetMapping("/locations-statistics")
   public ResponseEntity<Map<String, Long>> getStatisticsForLocations() {
