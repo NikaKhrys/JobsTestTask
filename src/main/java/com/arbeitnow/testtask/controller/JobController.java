@@ -2,6 +2,9 @@ package com.arbeitnow.testtask.controller;
 
 import com.arbeitnow.testtask.service.JobService;
 import com.arbeitnow.testtask.service.dto.JobDto;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -34,6 +37,12 @@ public class JobController {
    * @param pageable - number and size of the page, sorting criteria
    * @return page with jobs
    */
+  @Operation(summary = "Get all jobs")
+  @ApiResponses(
+      value = {
+        @ApiResponse(responseCode = "200", description = "Found all jobs"),
+        @ApiResponse(responseCode = "204", description = "No jobs found")
+      })
   @GetMapping
   public ResponseEntity<Page<JobDto>> getAllJobs(@ParameterObject Pageable pageable) {
     if (pageable == null) pageable = DEFAULT_PAGEABLE;
@@ -48,6 +57,12 @@ public class JobController {
    *
    * @return list with top ten jobs
    */
+  @Operation(summary = "Get top ten newest jobs")
+  @ApiResponses(
+      value = {
+        @ApiResponse(responseCode = "200", description = "Found top ten jobs"),
+        @ApiResponse(responseCode = "204", description = "No jobs found")
+      })
   @GetMapping("/top-ten")
   public ResponseEntity<List<JobDto>> getTopTen() {
     List<JobDto> jobDtos = jobService.getTopTen();
@@ -60,6 +75,12 @@ public class JobController {
    *
    * @return key-value pair with locations and corresponding jobs number in descending order
    */
+  @Operation(summary = "Get locations statistics")
+  @ApiResponses(
+      value = {
+        @ApiResponse(responseCode = "200", description = "Found locations statistics"),
+        @ApiResponse(responseCode = "204", description = "No statistics found")
+      })
   @GetMapping("/locations-statistics")
   public ResponseEntity<Map<String, Long>> getStatisticsForLocations() {
     Map<String, Long> statistics = jobService.getStatisticsForLocations();
