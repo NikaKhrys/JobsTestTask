@@ -37,11 +37,9 @@ public class JobServiceImpl implements JobService {
   public Map<String, Long> getStatisticsForLocations() {
     List<Tuple> statisticsList = jobRepository.countJobsByLocation();
     Map<String, Long> statistics = new LinkedHashMap<>();
-    statisticsList.stream()
-        .forEach(
-            item ->
-                statistics.put(
-                    item.get("location", String.class), item.get("jobs_count", Long.class)));
+    statisticsList.forEach(
+        item ->
+            statistics.put(item.get("location", String.class), item.get("jobs_count", Long.class)));
     return statistics;
   }
 }

@@ -47,11 +47,10 @@ class JobRepositoryTest {
   void countJobsByLocation_shouldReturnJobsCount_whenDataIsPresent() {
     List<Tuple> jobsCountList = jobRepository.countJobsByLocation();
     Map<String, Long> jobsCountMap = new LinkedHashMap<>();
-    jobsCountList.stream()
-        .forEach(
-            item ->
-                jobsCountMap.put(
-                    item.get("location", String.class), item.get("jobs_count", Long.class)));
+    jobsCountList.forEach(
+        item ->
+            jobsCountMap.put(
+                item.get("location", String.class), item.get("jobs_count", Long.class)));
 
     assertEquals(UNIQUE_LOCATIONS_NUMBER, jobsCountMap.size());
     assertEquals(JOBS_IN_NY, jobsCountMap.get("New York, NY"));
