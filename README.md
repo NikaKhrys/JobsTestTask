@@ -4,7 +4,7 @@
 
 1. [ Project description ](#project-description)
 2. [Jobs information update](#jobs-information-update)
-3. [ Access to functionality ](#access-to-funtionality)
+3. [ Access to functionality ](#access-to-functionality)
 
 
 ### Project description
