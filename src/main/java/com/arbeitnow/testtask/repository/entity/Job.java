@@ -17,6 +17,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entity for retrieving Job data
+ *
+ * @author NikaKhrys
+ */
 @Entity
 @Table(name = "jobs")
 @Data

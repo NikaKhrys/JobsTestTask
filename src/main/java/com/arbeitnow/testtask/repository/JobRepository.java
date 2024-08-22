@@ -7,7 +7,14 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
+/**
+ * Repository interface for interacting with Job entity
+ *
+ * @author NikaKhrys
+ */
+@Repository
 public interface JobRepository
     extends PagingAndSortingRepository<Job, UUID>, CrudRepository<Job, UUID> {
 

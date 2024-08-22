@@ -11,6 +11,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * DTO for transferring Job data
+ *
+ * @author NikaKhrys
+ */
 @Data
 @NoArgsConstructor
 @JsonRootName("job")

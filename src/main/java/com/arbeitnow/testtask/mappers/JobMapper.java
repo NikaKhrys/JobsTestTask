@@ -7,6 +7,11 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants.ComponentModel;
 import org.springframework.data.domain.Page;
 
+/**
+ * Mapper abstract class for the Job entity
+ *
+ * @author NikaKhrys
+ */
 @Mapper(componentModel = ComponentModel.SPRING)
 public abstract class JobMapper {
 
